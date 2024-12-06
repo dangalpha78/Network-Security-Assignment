@@ -1,7 +1,10 @@
 import os
 import hashlib
 
-USER_DATA_FILE = "user/userdata.txt"
+# USER_DATA_FILE = "Network-Security-Assignment/App/user/userdata.txt"
+USER_DATA_FILE = os.path.join(os.path.dirname(__file__), "userdata.txt")
+
+print("Absolute Path:", os.path.abspath(USER_DATA_FILE))
 
 # Function to hash the password
 # We use SHA-1 hash function

@@ -3,6 +3,15 @@ import os
 import time
 
 # File paths
+# USERDATA_FILE = os.path.join("..", "Network-Security-Assignment", "Assignment", "App", "user", "userdata.txt")
+USERDATA_FILE = os.path.join("..", "App", "user", "userdata.txt")
+
+# Print the absolute path
+print("Absolute Path:", os.path.abspath(USERDATA_FILE))
+
+# Check if the path exists
+print("Path Exists:", os.path.exists(USERDATA_FILE))
+# USERDATA_FILE = os.path.join("..", "Network-Security-Assignment/Assignment/App/user", "userdata.txt")
 USERDATA_FILE = os.path.join("..", "App/user", "userdata.txt")
 DICTIONARY_FILE = os.path.join("rockyou.txt")
 
