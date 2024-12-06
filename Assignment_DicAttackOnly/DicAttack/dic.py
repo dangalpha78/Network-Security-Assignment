@@ -2,22 +2,13 @@ import hashlib
 import os
 import time
 
-# File paths
-# USERDATA_FILE = os.path.join("..", "Network-Security-Assignment", "Assignment", "App", "user", "userdata.txt")
-USERDATA_FILE = os.path.join("..", "App", "user", "userdata.txt")
 
-# Print the absolute path
-print("Absolute Path:", os.path.abspath(USERDATA_FILE))
-
-# Check if the path exists
-print("Path Exists:", os.path.exists(USERDATA_FILE))
-# USERDATA_FILE = os.path.join("..", "Network-Security-Assignment/Assignment/App/user", "userdata.txt")
 USERDATA_FILE = os.path.join("..", "App/user", "userdata.txt")
 DICTIONARY_FILE = os.path.join("rockyou.txt")
 
 # Function to hash the password with SHA-256
 def hash_with_sha256(password):
-    return hashlib.sha1(password.encode()).hexdigest()
+    return hashlib.sha256(password.encode()).hexdigest()
 
 # Function to load userdata from the file
 def load_userdata(filename):

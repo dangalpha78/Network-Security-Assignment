@@ -9,7 +9,7 @@ print("Absolute Path:", os.path.abspath(USER_DATA_FILE))
 # Function to hash the password
 # We use SHA-1 hash function
 def hash_password(password):
-    return hashlib.sha1(password.encode()).hexdigest()
+    return hashlib.sha256(password.encode()).hexdigest()
 
 # Check if the username exist or not
 def is_username_exist(username):
