@@ -5,8 +5,8 @@ USER_DATA_FILE = os.path.join(os.path.dirname(__file__), "userdata.txt")
 
 # Function to hash the password using bcrypt
 def hash_password(password):
-    salt = bcrypt.gensalt()  # Generates a secure salt
-    hashed_password = bcrypt.hashpw(password.encode(), salt)  # Hash the password with the salt
+    salt = bcrypt.gensalt()  
+    hashed_password = bcrypt.hashpw(password.encode(), salt)  
     return hashed_password, salt
 
 # Check if a username exists

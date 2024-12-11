@@ -27,26 +27,27 @@ def dictionary_attack():
         passwords = wordlist.read().splitlines()
 
     print("Starting dictionary attack...")
-    start_time = time.time()  # Record the start time of the attack
+    print("Hashing with Key Stretching")
+    start_time = time.perf_counter()   # Record the start time of the attack
 
     # Attempt to crack each user's password
     for username, stored_hash, _ in user_data:
         print(f"\nAttempting to crack password for user: {username}")
-        user_start_time = time.time()  # Record start time for this user
+        user_start_time = time.perf_counter()   # Record start time for this user
 
         for password in passwords:
             # Use bcrypt's checkpw to compare the entered password with the stored hash
             if bcrypt.checkpw(password.encode(), stored_hash.encode()):
-                user_end_time = time.time()  # Record end time for this user
+                user_end_time = time.perf_counter()   # Record end time for this user
                 print(f"Password found for {username}: {password}")
-                print(f"Time taken for {username}: {user_end_time - user_start_time:.2f} seconds")
+                print(f"Time taken for {username}: {user_end_time - user_start_time:.30f} seconds")
                 break
         else:
-            user_end_time = time.time()
+            user_end_time = time.perf_counter() 
             print(f"Password for {username} not found in the dictionary.")
-            print(f"Time taken for {username}: {user_end_time - user_start_time:.2f} seconds")
+            print(f"Time taken for {username}: {user_end_time - user_start_time:.30f} seconds")
 
-    end_time = time.time()  # Record the end time of the attack
-    print(f"\nTotal time taken: {end_time - start_time:.2f} seconds")
+    end_time = time.perf_counter()   # Record the end time of the attack
+    print(f"\nTotal time taken: {end_time - start_time:.30f} seconds")
 
 dictionary_attack()
